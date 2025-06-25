@@ -26,7 +26,7 @@
 {#if error}
   <p class="text-red-600">{error}</p>
 {:else if spotPrices.length === 0}
-  <p>Laddar elpriser...</p>
+  <p>Loading spotprices...</p>
 {:else}
   <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
     {#each spotPrices as price}
@@ -35,6 +35,7 @@
           {formatHour(price.time_start)} – {formatHour(price.time_end)}
         </h2>
         <p class="text-gray-800 text-xl">{(price.SEK_per_kWh * 100).toFixed(2)} öre/kWh</p>
+        <p class="text-gray-500 text-sm">{(price.EUR_per_kWh * 100).toFixed(2)} eurocent/kWh</p>
       </li>
     {/each}
   </ul>
