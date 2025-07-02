@@ -22,11 +22,22 @@
       <div class="flex items-center gap-4">
         <a href="/" class="text-gray-700 dark:text-gray-200 hover:underline">Hem</a>
         <button
-          class="px-4 py-2 rounded bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition"
+          class="relative w-12 h-6 bg-gray-300 dark:bg-gray-600 rounded-full transition-colors duration-300 focus:outline-none"
           on:click={toggleDark}
           aria-label="Toggle dark mode"
         >
-          {dark ? '🌙 Dark mode' : '☀️ Light mode'}
+          <span
+            class="absolute left-1 top-1 w-4 h-4 rounded-full shadow transition-transform duration-300"
+            style="transform: translateX({dark ? '24px' : '0'})"
+          ></span>
+          <span class="absolute left-1 top-1 w-4 h-4 flex items-center justify-center pointer-events-none transition-opacity duration-300"
+                style="opacity: {dark ? 1 : 0}; transform: translateX(24px)">
+            🌙
+          </span>
+          <span class="absolute left-1 top-1 w-4 h-4 flex items-center justify-center pointer-events-none transition-opacity duration-300"
+                style="opacity: {dark ? 0 : 1};">
+            ☀️
+          </span>
         </button>
       </div>
     </div>
