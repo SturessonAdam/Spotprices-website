@@ -53,7 +53,7 @@
 				<h2 class="font-semibold text-lg">
 					{formatHour(price.time_start)} – {formatHour(price.time_end)}
 				</h2>
-				<p class="text-gray-900 dark:text-gray-100 text-xl">
+				<p class=" text-xl">
 					{formatPrice(price)}
 				</p>
 			</li>
