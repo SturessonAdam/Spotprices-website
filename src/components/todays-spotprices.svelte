@@ -28,8 +28,8 @@
 		return `${(price.SEK_per_kWh * 100).toFixed(2)} öre/kWh`;
 	} else {
 		return `${(price.EUR_per_kWh * 100).toFixed(2)} eurocent/kWh`;
-	}
-}; 
+	  }
+  }; 
 
 </script>
 
