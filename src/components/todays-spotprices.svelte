@@ -45,19 +45,24 @@
 </div>
 
 {#if error}
-	<p class="text-red-500">{error}</p>
+    <p class="text-red-500">{error}</p>
 {:else}
-	<ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-		{#each spotPrices as price}
-			<li class="bg-gray-200 dark:bg-gray-700 p-4 rounded shadow">
-				<h2 class="font-semibold text-lg">
-					{formatHour(price.time_start)} – {formatHour(price.time_end)}
-				</h2>
-				<p class=" text-xl">
-					{formatPrice(price)}
-				</p>
-			</li>
-		{/each}
-	</ul>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {#each spotPrices as price}
+            <li class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow hover:shadow-lg transition-shadow duration-200 p-4 flex flex-col items-center">
+                <div class="flex items-center gap-2 mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-blue-500 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <h2 class="font-semibold text-base">
+                        {formatHour(price.time_start)} – {formatHour(price.time_end)}
+                    </h2>
+                </div>
+                <p class="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-1">
+                    {formatPrice(price)}
+                </p>
+            </li>
+        {/each}
+    </ul>
 {/if}
 
