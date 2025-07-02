@@ -22,6 +22,6 @@
         on:click={toggleDark}
         aria-label="Toggle dark mode"
     >
-        {dark ? '🌙 Mörkt läge' : '☀️ Ljust läge'}
+        {dark ? '🌙 Dark mode' : '☀️ Light mode'}
     </button>
 </header>

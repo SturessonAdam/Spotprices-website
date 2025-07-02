@@ -49,11 +49,11 @@
 {:else}
 	<ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 		{#each spotPrices as price}
-			<li class="bg-white p-4 rounded shadow">
+			<li class="bg-gray-200 dark:bg-gray-700 p-4 rounded shadow">
 				<h2 class="font-semibold text-lg">
 					{formatHour(price.time_start)} – {formatHour(price.time_end)}
 				</h2>
-				<p class="text-gray-800 text-xl">
+				<p class="text-gray-900 dark:text-gray-100 text-xl">
 					{formatPrice(price)}
 				</p>
 			</li>
