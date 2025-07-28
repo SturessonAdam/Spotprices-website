@@ -31,6 +31,15 @@
 	  }
   }; 
 
+  function getPriceClass(price) {
+    let value = selectedCurrency === 'SEK'
+      ? price.SEK_per_kWh * 100
+      : price.EUR_per_kWh * 100;
+
+    if (value < 50) return 'text-green-600 dark:text-green-400';
+    if (value > 100) return 'text-red-600 dark:text-red-400';
+    return 'text-gray-900 dark:text-gray-100';
+  }
 </script>
 
 <div class="mb-4 flex gap-4 items-center justify-center">
@@ -51,14 +60,15 @@
         {#each spotPrices as price}
             <li class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow hover:shadow-lg transition-shadow duration-200 p-4 flex flex-col items-center">
                 <div class="flex items-center gap-2 mb-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-blue-500 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <!-- Klockikon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <h2 class="font-semibold text-base">
                         {formatHour(price.time_start)} – {formatHour(price.time_end)}
                     </h2>
                 </div>
-                <p class="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-1">
+                <p class={`text-2xl font-bold mb-1 ${getPriceClass(price)}`}>
                     {formatPrice(price)}
                 </p>
             </li>
