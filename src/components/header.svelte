@@ -1,7 +1,7 @@
 <script>
     let dark = false;
 
-    function toggleDark() {
+    const toggleDark = () => {
         dark = !dark;
         if (dark) {
             document.documentElement.classList.add('dark');
